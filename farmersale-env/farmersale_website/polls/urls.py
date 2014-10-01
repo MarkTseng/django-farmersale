@@ -1,11 +1,9 @@
 from django.conf.urls import patterns, include, url
-from django.contrib import admin
 
-urlpatterns = patterns('',
+urlpatterns = patterns('polls.views',
     # Examples:
     # url(r'^$', 'farmersale_website.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^polls/', include('polls.urls')),
+    url(r'^hello/$', 'hello',name='hello'),
+    url(r'^time/$', 'current_datetime', name='current_datetime'),
 )

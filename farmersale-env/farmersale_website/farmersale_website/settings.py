@@ -26,9 +26,13 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+	'django.template.loaders.app_directories.Loader',
+)
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,6 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'django_extensions',
+	'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,6 +55,10 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'farmersale_website.urls'
+
+TEMPLATE_DIRS = [os.path.join( BASE_DIR, 'templates' ),
+				 os.path.join( BASE_DIR, 'templates/admin' ),
+]
 
 WSGI_APPLICATION = 'farmersale_website.wsgi.application'
 
