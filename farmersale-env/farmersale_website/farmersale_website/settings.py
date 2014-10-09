@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 	'django_extensions',
 	'polls',
+	'bookstore',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +59,6 @@ ROOT_URLCONF = 'farmersale_website.urls'
 
 TEMPLATE_DIRS = [os.path.join( BASE_DIR, 'templates' ),
 				 os.path.join( BASE_DIR, 'templates/admin' ),
-				 os.path.join( BASE_DIR, 'templates/polls' ),
 ]
 
 WSGI_APPLICATION = 'farmersale_website.wsgi.application'

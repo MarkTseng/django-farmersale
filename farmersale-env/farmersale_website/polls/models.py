@@ -5,6 +5,11 @@ from django.utils import timezone
 
 # Create your models here.
 
+class QuestionMangement(models.Manager):
+	def question_count(self, keyword):
+		return self.filter(question_text__startswith=keyword).count()
+
+
 class Question(models.Model):
 	question_text = models.CharField(verbose_name='Question',max_length=200)
 	pub_date = models.DateTimeField('date published')
@@ -17,6 +22,8 @@ class Question(models.Model):
 	was_published_recently.admin_order_field = 'pub_date'
 	was_published_recently.boolean = True
 	was_published_recently.short_description = 'Published recently?'
+
+	objects = QuestionMangement();
 
 class Choice(models.Model):
 	question = models.ForeignKey(Question)
